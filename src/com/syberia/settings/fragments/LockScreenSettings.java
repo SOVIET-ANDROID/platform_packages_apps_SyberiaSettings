@@ -38,8 +38,8 @@ import java.util.List;
 
 public class LockScreenSettings extends SettingsPreferenceFragment implements Indexable {
 
-    private static final String FOD_ICON_PICKER_CATEGORY = "fod_icon_picker";
-    private PreferenceCategory mFODIconPickerCategory;
+    private static final String FOD_ICON_PICKER_CATEGORY = "fod_icon_picker_category";
+    private Preference mFODIconPicker;
 
     @Override
     public void onCreate(Bundle bundle) {
@@ -47,10 +47,10 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements In
         addPreferencesFromResource(R.xml.lockscreen_settings);
         final PreferenceScreen prefScreen = getPreferenceScreen();
 
-        mFODIconPickerCategory = (PreferenceCategory) findPreference(FOD_ICON_PICKER_CATEGORY);
-        if (mFODIconPickerCategory != null
+        mFODIconPicker = (Preference) findPreference(FOD_ICON_PICKER_CATEGORY);
+        if (mFODIconPicker != null
                 && !getResources().getBoolean(com.android.internal.R.bool.config_needCustomFODView)) {
-            prefScreen.removePreference(mFODIconPickerCategory);
+            prefScreen.removePreference(mFODIconPicker);
         }
 
     }
